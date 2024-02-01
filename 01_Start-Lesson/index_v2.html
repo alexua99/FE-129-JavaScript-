@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .tets {
+            color: blue;
+        }
+        
+        .red {
+            color: red;
+        }
+        
+        .card {
+            padding: 20px;
+            border: 1px solid;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>First JS lesson</h1>
+
+    <div class="item">
+        <h4>Name</h4>
+        <input class="inp" type="text">
+        <h4>add Img</h4>
+        <input class="inp2" type="text">
+        <h4>Age</h4>
+        <input class="inp3" type="number">
+        <button class="btn">Add</button>
+        <button class="btn1">Reset</button>
+    </div>
+
+    <div class="item">
+        <div class="out"> f sedfas dfasdfsa df asd</div>
+        <h5>Твій Вік: <span class="out-2"></span> </h5>
+    </div>
+
+    <script>
+        // 1: Куди вводимо (Input)
+        // 2: Кнопка (button)
+        // 3: Виводимо результат (div)
+
+        let inp = document.querySelector('.inp')
+        let inp2 = document.querySelector('.inp2')
+        let inp3 = document.querySelector('.inp3')
+        let btn = document.querySelector('.btn')
+        let out = document.querySelector('.out')
+
+        // out.innerText = "<h1> asfkdjnfkas dnfkjasn dkfjsa ndkfj ans </h1>"
+        // out.innerHTML = 'asdfasdfasdfasdfasd'
+        btn.onclick = () => {
+
+            out.innerHTML += `
+            <div class="card">
+                <img src="${inp2.value}" width="200">
+                <h4>${inp.value}</h4>
+            </div>
+            `
+        }
+    </script>
+</body>
+
+</html>

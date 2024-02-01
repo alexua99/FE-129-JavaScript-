@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .tets {
+            color: blue;
+        }
+        
+        .red {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>First JS lesson</h1>
+
+    <input type="text">
+
+    <script>
+        if (true) {
+            var testVar = 'Hello Var';
+            let testLet = 'Hello Let';
+        }
+        // console.log(testLet)
+
+
+        const testConst = 'Hello'; // const не можливо переписати
+        //testConst = 123
+        // Варіанти виводу результату JavaScript
+        console.log('String')
+        console.log(testConst)
+
+        //alert("Alert Test")
+
+        // Варіанти вводу результату JavaScript
+        let name = prompt("Name")
+
+        document.write(`
+         <h2 class="tets">
+           ${testConst}  <span class="red"> ${name} </span>
+         </h2>
+        `)
+        console.log(testConst + " " + name + "!!!")
+    </script>
+</body>
+
+</html>
