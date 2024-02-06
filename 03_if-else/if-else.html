@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input class="inp1" type="text" placeholder="Login">
+    <input class="inp1-1" type="password" placeholder="Password">
+    <button class="btn1">Sing In</button>
+
+    <select class="sel" name="" id="">
+        <option value="ua">UA</option>
+        <option value="usd">USD</option>
+    </select>
+
+    <div class="out1"></div>
+
+    <script>
+
+        //let userName = 'sasha';
+
+        let inp1 = document.querySelector('.inp1')
+        let inp101 = document.querySelector('.inp1-1')
+        let btn1 = document.querySelector('.btn1')
+
+        let sel = document.querySelector('.sel')
+
+        let out1 = document.querySelector('.out1')
+
+        //Оператор "І": &&
+        //Оператор "Або": ||
+        //Оператор "==": Порівняня
+        //Оператор "===": Порівняня + по типу данних
+        //Оператор "!=": Не дорівнює
+        //Оператор "!=="
+
+        // console.log(5 == 5);
+        // console.log(5 != 5);
+
+        if (btn1) {
+            btn1.onclick = () => {
+                console.log(sel.value);
+                if (inp1.value == 'sasha' && inp101.value == '123') {
+                    out1.innerHTML = "Ви успішно увійшли!!"
+
+                } else if (inp1.value == 'sasha' || inp101.value == '123') {
+                    out1.innerHTML = "Нагадати Логін або Пароль!"
+                }
+                else {
+                    out1.innerHTML = "Невірний Логін або Пароль"
+                }
+            }
+        }
+
+
+
+    </script>
+</body>
+
+</html>
