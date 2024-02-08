@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        fetch('https://www.binance.com/bapi/asset/v1/public/asset-service/product/currency')
+            .then(data => data.json())
+            .then(data => console.log(data))
+
+        let items = ['Phone', 'laptop', 'laptop 1', 'laptop 2', 'laptop 3', 'laptop 6']
+
+        items.map(user => console.log(user))
+    </script>
+</body>
+
+</html>
