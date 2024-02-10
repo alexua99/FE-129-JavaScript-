@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input class="inp1" type="text" placeholder="login">
+    <input class="inp2" type="password" placeholder="password">
+    <button class="btn">login</button>
+
+    <div class="out"> </div>
+
+    <script>
+
+        let login = ['admin', 'admin 1', 'admin 3', 'admin 4']
+        let pass = '123'
+
+        let inp1 = document.querySelector('.inp1')
+        let inp2 = document.querySelector('.inp2')
+        let btn = document.querySelector('.btn')
+
+
+        function checkUser(name, password) {
+            if (name == login && password == pass) {
+                console.log("Зайшов");
+            } else {
+                console.log("Не Зайшов");
+            }
+        }
+
+        btn.onclick = () => {
+            checkUser(inp1.value, inp2.value)
+        }
+
+        // let out = document.querySelector('.out')
+
+
+        // function createName(name, age) {
+        //     return `
+        //     <div class="card">
+        //         <h1>Привіт ${name}</h1>
+        //         <h1>Ваш вік ${2024 - +age}</h1>
+        //     </div>
+        //     `
+        // }
+        // out.innerHTML = createName("Sasha", 1984)
+
+
+        // for (let i = 0; i < 10; i++) {
+        //     out.innerHTML += createName("sxs")
+        // }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input class="inp1" type="text" name="" id="">
+    <input class="inp2" type="text" name="" id="">
+    <button class="btn">Add</button>
+
+
+    <div class="out"></div>
+
+
+
+    <script>
+
+        let inp1 = document.querySelector('.inp1')
+
+        let inp2 = document.querySelector('.inp2')
+
+        let btn1 = document.querySelector('.btn')
+
+        let out = document.querySelector('.out')
+
+        btn1.onclick = testSasha
+
+        // function declaration
+        function testSasha() {
+            console.log("test");
+        }
+
+        // function expration
+        let TestFunc = function () {
+            console.log("test 222");
+        }
+
+        let arrTest = () => {
+            console.log("test Arrow");
+        }
+
+
+
+        // Exemple
+
+        function consolLog(a, b) {
+            console.log('a + b = ' + (a + b))
+        }
+
+        //btn1.onclick = consolLog(+inp1.value, +inp2.value)
+        btn1.onclick = () => consolLog(+inp1.value, +inp2.value)
+
+
+
+        function testRern(title, text, url) {
+            return `
+            <div class="card">
+                <img src="${url}" alt="">
+                 <h2 class="title"> ${title}</h2>
+                 <p class="text">${text}</p>
+                 <button>start</button>
+             </div>
+            `
+        }
+        // out.innerHTML += testRern("title", 'Tedsf sdf sd fsd', 'http//google.com')
+        // out.innerHTML += testRern("title 333", 'Tedsf sdf sd fsd 5444', 'http//google.com')
+        // out.innerHTML += testRern("t12341234", 'Tedsf sdf  23 444', 'http//google.com')
+
+
+
+        //1: створити функцію RenderTitle
+        //2: 10 раз вивести Sasha
+
+        function renderName(name) {
+            let title = `<h2>${name}</h2>`
+
+            return title
+
+        }
+
+        let name = ['Sasta', 'Sasha 1', 'Sasha 2', 'Sasha 3', 'Sasha 4']
+
+        for (let i = 0; i < name.length; i++) {
+
+            if (i == 3) {
+                out.innerHTML += renderName(name[i], 'red')
+                continue;
+            }
+            out.innerHTML += renderName(name[i], 'black')
+        }
+
+
+
+        function calc(num1, num2) {
+
+        }
+
+    </script>
+
+</body>
+
+</html>

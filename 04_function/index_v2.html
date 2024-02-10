@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input class="inp1" type="text" name="" id="">
+    <input class="inp2" type="text" name="" id="">
+    <button class="btn">Add</button>
+
+
+    <div class="out"></div>
+
+
+
+    <script>
+
+        let inp1 = document.querySelector('.inp1')
+        let inp2 = document.querySelector('.inp2')
+        let btn1 = document.querySelector('.btn')
+        let out = document.querySelector('.out')
+
+        btn1.onclick = () => {
+            out.innerHTML = calc(5, 4, 'x')
+        }
+
+
+
+        function calc(num1, num2, sym) {
+            switch (sym) {
+                case "+":
+                    return `${num1} + ${num2} = ${+num1 + +num2}`
+                    break;
+                case "-":
+                    return `${num1} - ${num2} = ${+num1 - +num2}`
+                    break;
+                case "x":
+                    return `${num1} x ${num2} = ${+num1 * +num2}`
+                    break;
+            }
+        }
+
+
+
+        // out.innerHTML = calc(6, 5)
+
+    </script>
+
+</body>
+
+</html>
