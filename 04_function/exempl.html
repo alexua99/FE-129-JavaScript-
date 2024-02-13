@@ -46,15 +46,23 @@
         </div>
 
     </div>
-
+    <button class="prev">Prev</button>
+    <button class="next">Next</button>
 
     <script>
 
         let out = document.querySelector('.row')
 
-        fetch('https://www.binance.com/bapi/asset/v1/public/asset-service/product/currency')
-            .then(data => data.json())
-            .then(data => getItem(data.data))
+
+
+        function buttonNext(num) {
+            out.innerHTML = ""
+            fetch(`https://rickandmortyapi.com/api/character?page=${num}`)
+                .then(data => data.json())
+                .then(data => data.results.map(item => out.innerHTML += item.name + "<br>"))
+        }
+
+        buttonNext(3)
 
 
 

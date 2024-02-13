@@ -21,16 +21,25 @@
             img: 'https://hips.hearstapps.com/hmg-prod/images/2024-tesla-model-s-107-6572200e43fa1.jpg?crop=0.497xw:0.560xh;0.243xw,0.232xh&resize=768:*',
             price: 30000,
             ukrainePrice: function () {
-                console.log("test")
+                console.log(this.price)
             }
 
         }
 
+
         out.innerHTML = `
              <div class="card">
               Tesle
+             <button> Start </button>
             </div>
-            `
+            `;
+
+
+        let btn = document.querySelector('button')
+        btn.onclick = () => {
+            Tesla.ukrainePrice()
+        }
+
     </script>
 </body>
 
