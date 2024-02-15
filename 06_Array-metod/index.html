@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .box {
+            background-color: red;
+            height: 100px;
+            width: 100px;
+            margin: 5px;
+        }
+
+        .blue {
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">01</div>
+    <div class="box">02</div>
+    <div class="box">03</div>
+    <div class="box">04</div>
+    <div class="box">05</div>
+    <div class="box">06</div>
+
+    <script>
+
+        let box = document.querySelector('.box')
+        let box2 = document.querySelectorAll('.box')
+        console.log(box);
+        console.log(box2);
+
+
+        box2.forEach(item => {
+            item.onclick = () => {
+
+                box2.forEach(item => {
+                    item.classList.remove('blue')
+                })
+
+                item.classList.add('blue')
+            }
+        })
+
+        // box2[0].onclick = () => {
+        //     box2[0].classList.toggle('blue')
+        // }
+        // box2[1].onclick = () => {
+        //     box2[1].classList.toggle('blue')
+        // }
+        // box2[2].onclick = () => {
+        //     box2[2].classList.toggle('blue')
+        // }
+    </script>
+</body>
+
+</html>
