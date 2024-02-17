@@ -88,6 +88,7 @@ function renderCars(data) {
        <img src="${data.img}" alt="${data.brand} ${data.model}">
        <h2 class="card__title">${data.brand} ${data.model} ${data.age}</h2>
        <h5 class="card__price">${data.price}$ <span class="card__rage">${data.lenght} тис. км</span></h5>
+       <button> Add </button>
      </div>
     `
 }
@@ -101,11 +102,21 @@ function showAll() {
 
 function renderOption() {
 
-    cars.map(car => {
-        selectOut.innerHTML += `
-         <option value="${car.brand}"> ${car.brand} </option>
-        `
+    let arr2 = []
+
+    cars.map(item => {
+        arr2.push(item.brand)
     })
+
+
+    console.log(new Set(arr2));
+
+
+    // cars.map(car => {
+    //     selectOut.innerHTML += `
+    //      <option value="${car.brand}"> ${car.brand} </option>
+    //     `
+    // })
 }
 
 function PriceSort() {
@@ -136,6 +147,4 @@ BtnShowAll.onclick = showAll
 showAll()
 
 renderOption()
-
-
 
