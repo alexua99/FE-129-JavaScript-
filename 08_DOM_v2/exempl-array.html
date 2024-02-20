@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <ul class="out"></ul>
+
+    <script src="./data/cars.js"></script>
+    <script>
+        console.log(cars);
+        let out = document.querySelector('.out')
+
+        const Users = [
+            {
+                name: "name 1",
+                age: 22,
+                gender: "Man"
+            },
+            {
+                name: "name 2",
+                age: 19,
+                gender: "Woman"
+            },
+            {
+                name: "name 3",
+                age: 15,
+                gender: "Woman"
+            },
+            {
+                name: "name 4",
+                age: 33,
+                gender: "Man"
+            },
+        ]
+
+
+        function createItem(item) {
+            let li = document.createElement('li')
+
+
+            let span = document.createElement('span')
+            span.innerHTML = item.name + item.gender
+
+            let bold = document.createElement('b')
+            bold.innerHTML = `Age:  ${item.age}`
+
+            li.append(span, bold)
+
+            return li
+        }
+
+        // Users.map(item => out.append(createItem(item)))
+
+
+
+        function sort() {
+            out.innerHTML = ''
+            Users.map(item => {
+                if (item.age > 15) {
+                    out.append(createItem(item))
+                }
+            })
+        }
+
+
+
+        function gender(gen) {
+
+            Users.map(item => {
+
+                if (item.gender == gen) {
+                    out.append(createItem(item))
+
+
+                }
+            })
+        }
+        gender('Man')
+
+        gender('Woman')
+
+    </script>
+</body>
+
+</html>
