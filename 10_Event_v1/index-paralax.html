@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            color: #fff;
+        }
+
+        body {
+            overflow: hidden;
+        }
+
+        .hero {
+            background-color: black;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+
+        }
+
+        p {
+            max-width: 350px;
+            margin: 10px 0;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+            position: absolute;
+        }
+
+        .dooldle {
+            width: 100px;
+        }
+
+        .planet {
+            position: absolute;
+            right: -30%;
+            bottom: -68%;
+        }
+
+        .cursor {
+            position: absolute;
+            right: 15%;
+            bottom: 0%;
+            width: 300px;
+            z-index: 10;
+        }
+
+        .dooldle {
+            position: absolute;
+            right: 0%;
+            bottom: 0%;
+            width: 150px;
+            z-index: 10;
+        }
+
+        .dooldle:nth-of-type(1) {
+            right: 50%;
+            bottom: 20%;
+        }
+
+        .dooldle:nth-of-type(2) {
+            right: 45%;
+            bottom: 50%;
+        }
+
+        .dooldle:nth-of-type(3) {
+            right: 30%;
+            bottom: 70%;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <section class="hero">
+        <div class="container">
+            <h1>Lorem ipsum dolor sit.</h1>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et officia id beatae impedit sapiente magnam
+                aperiam libero. Voluptatum, qui! Quos?</p>
+            <button>Lorem</button>
+
+            <img src="./img/doodle-1.png" class="dooldle animatin-item" data-speed="3">
+            <img src="./img/doodle-2.png" class="dooldle animatin-item" data-speed="2">
+            <img src="./img/doodle-3.png" class="dooldle animatin-item" data-speed="1">
+            <img src="./img/planet.png" class="planet animatin-item" data-speed="0.2">
+            <img src="./img/cursor.png" class="cursor animatin-item" data-speed="0.6">
+        </div>
+    </section>
+
+
+
+    <script>
+        let hero = document.querySelector('.hero')
+        let itemAnimation = document.querySelectorAll('.animatin-item')
+
+
+
+        hero.addEventListener('mousemove', (event) => {
+            let heigh = hero.offsetHeight / 2
+
+            itemAnimation.forEach(item => {
+                let speed = item.getAttribute('data-speed')
+
+                item.style.transform = `translate(${event.clientX * speed / 10}px, ${(event.clientY - heigh) * speed / 10}px)`
+            })
+        })
+    </script>
+
+</body>
+
+</html>
