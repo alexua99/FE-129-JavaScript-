@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+
+    <style>
+        .low {
+            color: green;
+        }
+
+        .middle {
+            color: yellow;
+        }
+
+        .high {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>To Do List</h2>
+    <input class="inp" type="text">
+    <select class="select">
+        <option value="low">Low</option>
+        <option value="middle">Middle</option>
+        <option value="high">High</option>
+    </select>
+    <button class="btn">Add</button>
+    <ol class="out">
+        <li><input type="checkbox"><span>Test</span> <button>Х</button></li>
+    </ol>
+    <div class="count">0</div>
+
+
+
+    <script>
+        let inp = document.querySelector('.inp')
+        let sel = document.querySelector('.select')
+        let btn = document.querySelector('.btn')
+        let out = document.querySelector('.out')
+
+        let items = []
+
+        //  Приорітети
+        // Low = green
+        // middle = yellow
+        // high = red
+
+
+        btn.addEventListener('click', () => {
+            items.push({
+                name: inp.value,
+                peotity: sel.value
+            })
+
+
+
+            console.log(items);
+        })
+
+
+
+        // let testJbj = {
+        //     name: "Sasha",
+        //     peotity: 'high'
+        // }
+
+        // out.innerHTML = ` <li><input type="checkbox"><span class="${testJbj.peotity}">Test</span> <button>Х</button></li>`
+    </script>
+</body>
+
+</html>

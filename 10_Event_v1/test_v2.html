@@ -15,6 +15,9 @@
     <div class="count">0</div>
 
 
+
+    <h1 contenteditable="true">Test</h1>
+
     <script>
         let out = document.querySelector('.out')
         let count = document.querySelector('.count')
@@ -51,6 +54,8 @@
             let span = document.createElement('span')
             span.innerHTML = item.name
 
+            span.setAttribute('contenteditable', 'false')
+
             let bold = document.createElement('strong')
             bold.innerHTML = `${item.age} Років `
 
@@ -73,7 +78,14 @@
                 li.remove()
             })
 
-            li.append(inp, span, bold, button)
+
+            let edit = document.createElement('button')
+            edit.innerHTML = '✏️'
+            edit.addEventListener('click', () => {
+
+            })
+
+            li.append(inp, span, bold, edit, button)
             return li
         }
 
