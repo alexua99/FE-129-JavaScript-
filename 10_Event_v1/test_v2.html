@@ -40,12 +40,27 @@
         ]
 
 
-        function createLI() {
+        function createLI(item) {
             let li = document.createElement('li')
 
+            let span = document.createElement('span')
+            span.innerHTML = item.name
+
+            let bold = document.createElement('strong')
+            bold.innerHTML = `${item.age} Років `
+
+
+            li.append(span, bold)
             return li
         }
 
+
+        btn.addEventListener('click', () => {
+            out.innerHTML = ''
+            users.map(item => {
+                out.append(createLI(item))
+            })
+        })
 
     </script>
 </body>
