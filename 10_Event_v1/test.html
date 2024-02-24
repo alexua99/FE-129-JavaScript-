@@ -13,10 +13,29 @@
             background-image: url('./img/boll.png');
             background-position: center;
             background-size: cover;
+            /* transition: transform 0.3s; */
+            position: relative;
+            z-index: 10;
+        }
+
+        .footbol-gool {
+            width: 220px;
+            height: 200px;
+            background-image: url('./img/footbol-gool.png');
+            background-position: center;
+            background-size: cover;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+
+        .move {
+            cursor: grab;
         }
 
         .wrapper {
             height: 100vh;
+            position: relative;
         }
     </style>
 </head>
@@ -24,6 +43,9 @@
 <body>
     <div class="wrapper">
         <div class="box"></div>
+        <div class="footbol-gool">
+
+        </div>
     </div>
 
 
@@ -35,14 +57,20 @@
 
         // wrapp.addEventListener('mousemove', move)
 
+
+        let click = true
+
         box.addEventListener('click', () => {
-            wrapp.addEventListener('mousemove', move)
-            //wrapp.removeEventListener('mousemove', move) // Зупинка
+            if (click) {
+                click = false
+                box.classList.add('move')
+                wrapp.addEventListener('mousemove', move)
+            } else {
+                click = true
+                box.classList.remove('move')
+                wrapp.removeEventListener('mousemove', move)
+            }
         })
-
-
-
-
 
 
         function move(event) {
