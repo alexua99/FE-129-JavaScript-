@@ -33,11 +33,22 @@
         let box = document.querySelector('.box')
         let wrapp = document.querySelector('.wrapper')
 
-        wrapp.addEventListener('mousemove', (event) => {
+        // wrapp.addEventListener('mousemove', move)
+
+        box.addEventListener('click', () => {
+            wrapp.addEventListener('mousemove', move)
+            //wrapp.removeEventListener('mousemove', move) // Зупинка
+        })
+
+
+
+
+
+
+        function move(event) {
             let center = box.offsetHeight / 2
             box.style.transform = `translate(${event.clientX - center}px, ${event.clientY - center}px`
-
-        })
+        }
 
     </script>
 </body>
