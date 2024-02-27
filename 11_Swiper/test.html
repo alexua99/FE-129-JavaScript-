@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="out"></div>
+
+
+    <script>
+
+        let out = document.querySelector('.out')
+
+        let item = [
+            {
+                img: "./img/ixcon.png",
+                title: "iphone 10",
+                category: "aplle",
+                price: 1200
+            },
+            {
+                img: "./img/ixcon.png",
+                title: "iphone 10",
+                category: "aplle",
+                price: 1200
+            },
+            {
+                img: "./img/ixcon.png",
+                title: "iphone 10",
+                category: "aplle",
+                price: 1200
+            },
+            {
+                img: "./img/ixcon.png",
+                title: "iphone 12",
+                category: "aplle",
+                price: 1200
+            },
+            {
+                img: "./img/ixcon.png",
+                title: "Samsung",
+                category: "Samsung",
+                price: 1200
+            },
+            {
+                img: "./img/ixcon.png",
+                title: "iphone 10",
+                category: "aplle",
+                price: 1200
+            },
+            {
+                img: "./img/ixcon.png",
+                title: "iphone 10",
+                category: "aplle",
+                price: 1200
+            },
+
+        ]
+
+
+        item.map(device => {
+            console.log(device.title);
+            if (device.category == "aplle") {
+                out.innerHTML += `
+                <div>
+                    <img src="${device.img}">
+                <h1>${device.title} </h1>
+                </div>
+                `
+            }
+
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <style>
+        html,
+        body {
+            position: relative;
+            height: 100%;
+        }
+
+        body {
+            background: #eee;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .swiper-pagination {
+            position: static;
+        }
+
+        .swiper-pagination-bullet {
+            background-color: red;
+            border-radius: 0;
+            width: 100px;
+        }
+
+        .swiper-pagination-bullet-active {
+            background-color: aqua;
+        }
+
+        .container {
+            padding: 0 90px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <header>test</header>
+        <section class="shop">
+            <div class="container">
+
+                <div class="swiper shop-slider">
+                    <div class="swiper-wrapper shop__swiper-wrapper">
+
+                        <div class="swiper-slide">
+                            <!-- // Наш єлумент -->
+                            <div class="shop__item">
+                                <img src="" alt="">
+                                <h2>Test</h2>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, eius!</p>
+                            </div>
+
+                        </div>
+
+                        <div class="swiper-slide">
+                            <!-- // Наш єлумент -->
+                            <div class="shop__item">
+                                <img src="" alt="">
+                                <h2>Test</h2>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, eius!</p>
+                            </div>
+
+                        </div>
+                        <div class="swiper-slide">
+                            <!-- // Наш єлумент -->
+                            <div class="shop__item">
+                                <img src="" alt="">
+                                <h2>Test</h2>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, eius!</p>
+                            </div>
+
+                        </div>
+                        <div class="swiper-slide">
+                            <!-- // Наш єлумент -->
+                            <div class="shop__item">
+                                <img src="" alt="">
+                                <h2>Test</h2>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, eius!</p>
+                            </div>
+
+                        </div>
+                        <div class="swiper-slide">
+                            <!-- // Наш єлумент -->
+                            <div class="shop__item">
+                                <img src="" alt="">
+                                <h2>Test</h2>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, eius!</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </section>
+        <footer>footer</footer>
+    </div>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper(".shop-slider", {
+            slidesPerView: 1,
+            spaceBetween: 0,
+            loop: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+            breakpoints: {
+                480: {
+                    slidesPerView: 2,
+                    spaceBetween: 30
+                },
+                1200: {
+                    slidesPerView: 5,
+                    spaceBetween: 30
+                },
+            }
+        });
+    </script>
+
+</body>
+
+</html>
