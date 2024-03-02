@@ -5,25 +5,83 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #000;
+            font-size: 16px;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+
+        }
+
+        .main {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 16px;
+            padding: 20px;
+            border: 1px solid rgb(0, 255, 42);
+            border-radius: 40px;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            background-color: aquamarine;
+        }
+
+        .card__rate {
+            color: rgb(128, 210, 46);
+            font-size: 20px;
+        }
+
+        .card__title {
+            font-size: 18px;
+        }
+
+        .card__content {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            justify-content: center;
+        }
+    </style>
 </head>
 
 <body>
 
     <div class="wrapper">
-        <header>
+        <div class="container">
+            <header>
 
-            <button class="btn">show</button>
-        </header>
-        <main class="main">
+                <button class="btn">show</button>
+            </header>
+            <main class="main">
 
-            <div class="card">
-                <img class="card__img" src="" alt="">
-                <div class="card__content">
-                    <h2 class="card__title"></h2>
-                    <h5 class="card__rate"> </h5>
-                </div>
-            </div>
-        </main>
+            </main>
+        </div>
+
     </div>
 
 
@@ -78,6 +136,9 @@
         function createItem(item) {
             let div = document.createElement('div')
             div.classList.add('card')
+            div.addEventListener('click', () => {
+                console.log(item.rate * 1000);
+            })
 
             let img = document.createElement('img')
             img.classList.add('card__img')
@@ -92,7 +153,7 @@
 
             let h5 = document.createElement('h5')
             h5.classList.add('card__rate')
-            h5.innerHTML = item.rate
+            h5.innerHTML = item.rate + " " + item.symbol
 
             content.append(h2, h5)
 
