@@ -15,10 +15,10 @@
         // https://rickandmortyapi.com/api/character?page=1
 
 
-        fetch('')
+        fetch('https://rickandmortyapi.com/api/character?page=1')
             .then(data => data.json())
             .then(data => {
-                console.log(data.data);
+                console.log(data);
             })
             .catch(error => console.log("Помилка" + " " + error))
     </script>
