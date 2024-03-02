@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <header>
+
+            <button class="btn">show</button>
+        </header>
+        <main class="main">
+
+            <div class="card">
+                <img class="card__img" src="" alt="">
+                <div class="card__content">
+                    <h2 class="card__title"></h2>
+                    <h5 class="card__rate"> </h5>
+                </div>
+            </div>
+        </main>
+    </div>
+
+
+    <script>
+        // https://rickandmortyapi.com/api/character?page=1
+        // https://www.binance.com/bapi/asset/v1/public/asset-service/product/currency
+
+        // fetch().then().then().catch()
+
+        let btnSHow = document.querySelector('.btn')
+        let main = document.querySelector('.main')
+
+        //btnSHow.addEventListener('click', showAll)
+
+        function showAll() {
+            fetch('https://www.binance.com/bapi/asset/v1/public/asset-service/product/currency')
+                .then(data => data.json())
+                // .then(data => {
+                //     data.data.map(item => {
+                //         console.log(item)
+                //     })
+                // })
+                .then(data => {
+                    console.log(data.data);
+                    rendor(data.data)
+                })
+                .catch(error => console.log("Помилка" + " " + error))
+        }
+
+        showAll()
+
+
+
+
+
+
+        function rendor(data) {
+            data.map(item => {
+                main.append(createItem(item))
+            })
+        }
+
+
+        // <div class="card">
+        //         <img class="card__img" src="" alt="">
+        //         <div class="card__content">
+        //             <h2 class="card__title"></h2>
+        //             <h5 class="card__rate"> </h5>
+        //         </div>
+        //     </div>
+
+        function createItem(item) {
+            let div = document.createElement('div')
+            div.classList.add('card')
+
+            let img = document.createElement('img')
+            img.classList.add('card__img')
+            img.src = item.imageUrl
+
+            let content = document.createElement('div')
+            content.classList.add('card__content')
+
+            let h2 = document.createElement('h2')
+            h2.classList.add('card__title')
+            h2.innerHTML = item.fullName
+
+            let h5 = document.createElement('h5')
+            h5.classList.add('card__rate')
+            h5.innerHTML = item.rate
+
+            content.append(h2, h5)
+
+            div.append(img, content)
+
+            return div
+        }
+
+
+
+    </script>
+</body>
+
+</html>
