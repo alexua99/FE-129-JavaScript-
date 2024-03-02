@@ -39,15 +39,19 @@
 
         .card {
             display: grid;
-            grid-template-columns: 80px 1fr;
+            grid-template-columns: 50px 1fr;
             gap: 16px;
             padding: 20px;
             border: 1px solid rgb(0, 255, 42);
-            border-radius: 40px;
+            border-radius: 20px;
             cursor: pointer;
         }
 
         .card:hover {
+            background-color: aquamarine;
+        }
+
+        .active {
             background-color: aquamarine;
         }
 
@@ -66,6 +70,23 @@
             gap: 10px;
             justify-content: center;
         }
+
+        .header {
+            padding: 40px 0;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .header__inp {
+            font-size: 18px;
+            padding: 10px;
+            border-radius: 20px;
+        }
+
+        .header__out {
+            font-size: 22px;
+        }
     </style>
 </head>
 
@@ -73,13 +94,21 @@
 
     <div class="wrapper">
         <div class="container">
-            <header>
+            <ol class="save">
 
-                <button class="btn">show</button>
+            </ol>
+            <header class="header">
+                <div class="header__field">
+                    <input class="header__inp" type="number" name="" id="">
+                </div>
+                <div class="header__out ">
+
+                </div>
             </header>
             <main class="main">
 
             </main>
+
         </div>
 
     </div>
@@ -94,6 +123,12 @@
         let btnSHow = document.querySelector('.btn')
         let main = document.querySelector('.main')
 
+        let out = document.querySelector('.header__out')
+        let inp = document.querySelector('.header__inp')
+
+        let outSave = document.querySelector('.save')
+
+        let saveRes = []
         //btnSHow.addEventListener('click', showAll)
 
         function showAll() {
@@ -124,20 +159,37 @@
             })
         }
 
+        function createSaveItem(item) {
 
-        // <div class="card">
-        //         <img class="card__img" src="" alt="">
-        //         <div class="card__content">
-        //             <h2 class="card__title"></h2>
-        //             <h5 class="card__rate"> </h5>
-        //         </div>
-        //     </div>
+            let li = document.createElement('li')
+            li.innerHTML = `${item.res} ${item.symb}`
+
+            return li
+        }
 
         function createItem(item) {
             let div = document.createElement('div')
             div.classList.add('card')
             div.addEventListener('click', () => {
-                console.log(item.rate * 1000);
+
+                let cards = document.querySelectorAll('.card')
+                cards.forEach(item => {
+                    item.classList.remove('active')
+                })
+
+
+                div.classList.add('active')
+                out.innerHTML = ` ${item.rate * inp.value} ${item.symbol} `
+
+                saveRes.push({
+                    res: item.rate * inp.value,
+                    symb: item.symbol
+                })
+                outSave.innerHTML = ''
+                saveRes.map(item => {
+                    outSave.append(createSaveItem(item))
+                })
+
             })
 
             let img = document.createElement('img')
