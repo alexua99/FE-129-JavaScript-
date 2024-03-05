@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        localStorage.setItem('sashaTest', 'Привіт') // Створення КЛюча
+        localStorage.getItem('sashaTest') // отримуемо
+
+        localStorage.clear() // Видалити все
+        localStorage.removeItem('sashaTest1') // Видалити по ключу
+
+
+
+        //// ОБєкти і массиви
+        let arr = [
+            {
+                name: "Sasha 1",
+                age: 22
+            },
+            {
+                name: "Sasha 2",
+                age: 22
+            }
+        ]
+
+        //console.log(JSON.stringify(arr));
+        //console.log(JSON.parse('[{"test": "sasha"}]'))
+
+        localStorage.setItem('obj2', JSON.stringify(arr)) // JSON.stringify() Зберігаємо у вигляді строки
+
+        let test2 = JSON.parse(localStorage.getItem('obj2')) // JSON.parse() перетворює строку в Масив або обєкт
+    </script>
+</body>
+
+</html>
