@@ -5,6 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+
+    <style>
+        main {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+    </style>
 </head>
 
 <body>
@@ -19,7 +27,7 @@
 
     <div class="favorit">
         <div class="count">0</div>
-        <button>show</button>
+        <button class="show">show</button>
     </div>
 
     <main>
@@ -27,14 +35,21 @@
     </main>
 
 
+    <div class="out2"></div>
+
 
     <script>
 
         let main = document.querySelector('main')
+        let out2 = document.querySelector('.out2')
+
+        let show = document.querySelector('.show')
 
         let countOut = document.querySelector('.count')
 
-        let fav = []
+        let fav = localStorage.getItem('favorit') ? JSON.parse(localStorage.getItem('favorit')) : []
+
+        countOut.innerHTML = fav.length
 
         function getApi() {
 
@@ -42,26 +57,54 @@
                 .then(data => data.json())
                 .then(data => {
                     let obj = data.results[0]
-                    console.log(obj)
 
-                    let div = document.createElement('div')
-                    div.addEventListener('click', () => {
-                        fav.push(data.results[0])
-                        console.log(fav);
-                        countOut.innerHTML = fav.length
-                    })
-                    let h2 = document.createElement('h2')
-                    h2.innerHTML = obj.name.first
-                    let img = document.createElement('img')
-                    img.src = obj.picture.medium
 
-                    div.append(h2, img)
-
-                    main.append(div)
+                    main.append(createUser(obj))
 
 
                 })
                 .catch(error => console.log(error))
+        }
+
+        show.addEventListener('click', () => {
+            fav.map(item => {
+                out2.append(createUser(item, 'fav'))
+            })
+        })
+
+
+
+        function createUser(data, favor) {
+
+
+            let div = document.createElement('div')
+
+            let button = document.createElement('button')
+            if (favor == 'fav') {
+                button.innerHTML = 'remove X'
+            } else {
+                button.innerHTML = 'add ❤️'
+            }
+            button.addEventListener('click', () => {
+
+                fav.push(data)
+
+                localStorage.setItem('favorit', JSON.stringify(fav))
+
+                countOut.innerHTML = fav.length
+            })
+
+            let h2 = document.createElement('h2')
+            h2.innerHTML = data.name.first
+            let img = document.createElement('img')
+            img.src = data.picture.medium
+
+            div.append(h2, img, button)
+
+            return div
+
+
+
         }
 
         getApi()
@@ -71,7 +114,7 @@
         getApi()
         getApi()
         getApi()
-        getApi()
+
 
 
     </script>
